@@ -22,7 +22,7 @@ https://www.youtube.com/watch?v=7bhohKCFi-U
 
 #### 메인
 
-![alt text](https://raw.githubusercontent.com/namjals/youtube_caption_analyzer/tree/master/img/main.png)
+![alt text](https://github.com/namjals/youtube_caption_analyzer/blob/master/img/main.png)
 
 
 
