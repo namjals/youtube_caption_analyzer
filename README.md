@@ -1,0 +1,101 @@
+## Youtube Caption Analyzer
+
+"포프티비 검색엔진 소개" 영상을 보고 계기가 되어 만들었습니다.
+
+https://www.youtube.com/watch?v=7bhohKCFi-U
+
+
+
+#### 주요 기능
+
+- 채널 id로 해당 채널의 모든 자막을 다운로드 합니다.
+- soynlp(영문,숫자) + komoran(한글) 조합하여 명사를 추출 합니다.
+- 영상별로 키워드를 출력합니다. (doc2vec, soykeyword)
+- 인덱싱을 이용해 빠른 검색이 가능합니다.
+- 수동 자막이 늘어날 수록 성능이 나아질 것 입니다.
+
+
+
+## 결과
+
+
+
+#### 메인
+
+![1525743756065](img\main.png)
+
+
+
+#### 검색 결과 1
+
+![1525743972767](img\result1.png)
+
+
+
+#### 검색 결과2
+
+![1525744079041](img\result2.png)
+
+
+
+## 설치
+
+- 환경 : Windows , Python36
+
+```
+pip install --upgrade google-api-python-client
+pip install flask
+pip install requests
+pip install werkzeug
+pip install soynlp
+pip install JPype
+pip install gensim
+```
+
+
+
+## 실행 방법
+
+1. 구글 API 콘솔에서 인증정보를 만듭니다.
+
+   - <https://console.cloud.google.com/apis/>
+
+2. 인증 정보를 ../key/client_secret.json으로 저장합니다.
+
+3. 승인된 리디렉션 URI에 <http://localhost:8080/oauth2callback> 추가합니다.
+
+4. 대시보드에 "YouTube Data API v3"를 추가합니다.
+
+   - 구글 API 인증 과정은 https://opentutorials.org/course/2473/16571에서 자세히 배울 수 있습니다.
+
+5. 코드를 실행합니다.
+
+   ```
+   python server.py
+   ```
+
+6. [http://localhost:8080](http://localhost:8080/) 에 접속합니다.
+
+7. 검색어를 입력하여 검색합니다.
+
+8. "1. Get auth" 클릭합니다.
+
+9. 인증 진행 후, 자막을 다운받고자 하는 채널의 id를 입력합니다.
+
+   - ex) 포프tv : UC63J0Q5huHSlbNT3KxvAaHQ
+
+10. "Download"를 클릭합니다.
+
+11. 다운로드가 완료 되면, "1. Train"을 클릭합니다.
+
+12. 훈련이 완료 되면 "2. Update"를 클릭합니다.
+
+13. 검색어를 입력하여 검색합니다.
+
+
+
+
+
+## 미진한 부분
+
+- 영어 대소문자 구별 없이 검색해야 합니다.
