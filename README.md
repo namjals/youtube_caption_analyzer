@@ -1,8 +1,6 @@
 # Youtube Caption Analyzer
 
-"포프티비 검색엔진 소개" 영상을 보고 계기가 되어 만들었습니다.
-
-https://www.youtube.com/watch?v=7bhohKCFi-U
+"[포프티비 검색엔진 소개](https://www.youtube.com/watch?v=7bhohKCFi-U)" 영상을 보고 계기가 되어 만들었습니다.
 
 자막을 다운 받아, 제목+설명+자막의 명사를 인덱싱, 키워드 추출하여 검색 결과를 보여줍니다.
 
