@@ -4,6 +4,8 @@
 
 https://www.youtube.com/watch?v=7bhohKCFi-U
 
+자막을 다운 받아, 제목+설명+자막의 명사를 인덱싱, 키워드 추출하여 검색 결과를 보여줍니다.
+
 
 
 ### 주요 기능
