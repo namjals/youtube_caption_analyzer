@@ -64,13 +64,11 @@ pip install gensim
 # 실행 방법
 
 
-1. 구글 API 콘솔에서 인증정보를 만듭니다.
+1. [구글 API 콘솔](https://console.cloud.google.com/apis/)에서 인증정보를 만듭니다.
 
-   - <https://console.cloud.google.com/apis/>
+2. 인증 정보를 /analyzer/key/client_secret.json로 다운로드 합니다.
 
-2. 인증 정보를 ../key/client_secret.json으로 저장합니다.
-
-3. 승인된 리디렉션 URI에 <http://localhost:8080/oauth2callback> 추가합니다.
+3. 승인된 리디렉션 URI에 <http://localhost:8080/oauth2callback> 를 추가합니다.
 
 4. 대시보드에 "YouTube Data API v3"를 추가합니다.
 
@@ -86,9 +84,9 @@ pip install gensim
 
 7. 검색어를 입력하여 검색합니다.
 
-8. "1. Get auth" 클릭합니다.
+8. /analyzer/data 폴더를 지우고, "1. Get auth" 클릭합니다.
 
-9. 인증 진행 후, 자막을 다운받고자 하는 채널의 id를 입력합니다.
+9. 인증 진행 후, 자막을 다운받고자 하는 채널 id를 입력합니다.
 
    - ex) 포프tv : UC63J0Q5huHSlbNT3KxvAaHQ
 
