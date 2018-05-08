@@ -12,7 +12,7 @@ https://www.youtube.com/watch?v=7bhohKCFi-U
 
 - 채널 id로 해당 채널의 모든 자막을 다운로드 합니다.
 - soynlp(영문,숫자) + komoran(한글) 조합하여 명사를 추출 합니다.
-- 영상별로 키워드를 출력합니다. (doc2vec, soykeyword)
+- 검색 결과에 비디오별로 키워드를 출력합니다. (doc2vec, soykeyword)
 - 인덱싱을 이용해 빠른 검색이 가능합니다.
 - 수동 자막이 늘어날 수록 성능이 나아질 것 입니다.
 
