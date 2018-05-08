@@ -74,7 +74,7 @@ pip install gensim
 
 4. 대시보드에 "YouTube Data API v3"를 추가합니다.
 
-   - 구글 API 인증 과정은 https://opentutorials.org/course/2473/16571에서 자세히 배울 수 있습니다.
+   - 구글 API 인증 과정은  [여기](https://opentutorials.org/course/2473/16571)에서 자세히 배울 수 있습니다.
 
 5. 코드를 실행합니다.
 
