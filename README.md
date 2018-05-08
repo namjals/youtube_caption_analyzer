@@ -6,7 +6,7 @@ https://www.youtube.com/watch?v=7bhohKCFi-U
 
 
 
-## 주요 기능
+### 주요 기능
 
 - 채널 id로 해당 채널의 모든 자막을 다운로드 합니다.
 - soynlp(영문,숫자) + komoran(한글) 조합하여 명사를 추출 합니다.
@@ -22,19 +22,19 @@ https://www.youtube.com/watch?v=7bhohKCFi-U
 
 
 
-## 메인
+### 메인
 
 ![alt text](https://github.com/namjals/youtube_caption_analyzer/blob/master/img/main.png)
 
 
 
-## 검색 결과 1
+### 검색 결과 1
 
 ![alt text](https://github.com/namjals/youtube_caption_analyzer/blob/master/img/result1.png)
 
 
 
-## 검색 결과2
+### 검색 결과2
 
 ![alt text](https://github.com/namjals/youtube_caption_analyzer/blob/master/img/result2.png)
 
