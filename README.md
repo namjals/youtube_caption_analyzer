@@ -22,19 +22,19 @@ https://www.youtube.com/watch?v=7bhohKCFi-U
 
 #### 메인
 
-![1525743756065](img\main.png)
+![1525743756065](https://github.com/namjals/youtube_caption_analyzer/tree/master/img/main.png)
 
 
 
 #### 검색 결과 1
 
-![1525743972767](img\result1.png)
+![1525743972767](https://github.com/namjals/youtube_caption_analyzer/tree/master/img/result1.png)
 
 
 
 #### 검색 결과2
 
-![1525744079041](img\result2.png)
+![1525744079041](https://github.com/namjals/youtube_caption_analyzer/tree/master/img/result2.png)
 
 
 
