@@ -16,7 +16,9 @@ https://www.youtube.com/watch?v=7bhohKCFi-U
 
 
 
+
 ## 결과
+
 
 
 
@@ -28,17 +30,19 @@ https://www.youtube.com/watch?v=7bhohKCFi-U
 
 #### 검색 결과 1
 
-![alt text](https://raw.githubusercontent.com/namjals/youtube_caption_analyzer/tree/master/img/result1.png)
+![alt text](https://github.com/namjals/youtube_caption_analyzer/blob/master/img/result1.png)
 
 
 
 #### 검색 결과2
 
-![alt text](https://raw.githubusercontent.com/namjals/youtube_caption_analyzer/tree/master/img/result2.png)
+![alt text](https://github.com/namjals/youtube_caption_analyzer/blob/master/img/result2.png)
+
 
 
 
 ## 설치
+
 
 - 환경 : Windows , Python36
 
@@ -54,7 +58,9 @@ pip install gensim
 
 
 
+
 ## 실행 방법
+
 
 1. 구글 API 콘솔에서 인증정보를 만듭니다.
 
