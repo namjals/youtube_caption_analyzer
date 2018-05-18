@@ -1,3 +1,5 @@
+
+
 import collections
 from collections import Counter
 import math
@@ -9,7 +11,8 @@ from lib.utils import load_json, save_json
 from lib.utils  import path
 
 def add_item(indexer, video_id, contents):
-    for word, count in Counter(contents).items():        
+    for word, count in Counter(contents).items():   
+        word = word.lower() #lowercase indexing
         if word in indexer:
             if video_id in indexer[word]:
                  indexer[word][video_id] += count
@@ -60,3 +63,5 @@ def update(t_weight = 6, d_weight = 3, c_weight = 1, forced = False):
     save_binary(indexer, index_path)
     save_json(indexer, index_readable_path)
     save_json(download, download_path)
+
+
