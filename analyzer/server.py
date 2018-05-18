@@ -1,3 +1,5 @@
+
+
 import json
 import os
 import re
@@ -26,6 +28,7 @@ from lib.utils import get_depth_dict
 from lib.utils import load_json, save_json
 from lib.utils import path
 #from path import path
+
 
 download_path = path['download']
 
@@ -124,56 +127,14 @@ def credentials_to_dict(credentials):
             'client_secret': credentials.client_secret,
             'scopes': credentials.scopes}
 
-@app.route('/train')
-def train():
-    preprocessing.normalizing()
-    noun.train()
-    noun.update(forced = True)
-    keywords.train()
-    return redirect(url_for('index'))
 
-@app.route('/update')
-def update():    
-    noun.update()
-    keywords.update()
-    indexing.update()
-    return redirect(url_for('index'))
-
-@app.route('/forced_update')
-def forced_update():
-    noun.update(forced = True)
-    keywords.update(forced = True)
-    indexing.update(forced = True)
-    return redirect(url_for('index'))
-
-@app.route('/search_word')
-def search_word():
-    search_word = request.args.get('search_word')
-    import timeit
-    start = timeit.default_timer()
-    search_list = search(search_word)
-    stop = timeit.default_timer()
-    return print_search_list(search_word, search_list, stop - start )
-    
-    
 def print_search_list(search_word, search_list, runtime):
     
-    html =  '<table>' + \
-            '<tr><td><a href="/">검색하러 가기</a></td></tr>' + \
-            '<tr><td>검색어 '+ str(search_word) + '</td></tr>' + \
-            '<tr><td>검색결과 ' + str(len(search_list))+ '개 ('+ str(round(runtime,2)) +'초)</td></tr>' + \
-            '</table><br><br>'
+    html =  '<table>' +             '<tr><td><a href="/">검색하러 가기</a></td></tr>' +             '<tr><td>검색어 '+ str(search_word) + '</td></tr>' +             '<tr><td>검색결과 ' + str(len(search_list))+ '개 ('+ str(round(runtime,2)) +'초)</td></tr>' +             '</table><br><br>'
     
     
     for info in search_list:
-        html += '<table>' + \
-            '<tr><td>1. 제목     : ' + info['title'] +'</td></tr>' + \
-            '<tr><td>2. 설명     : ' + info['description'] +'</td></tr>' + \
-            '<tr><td>3. 키워드   : ' + info['keywords'] +'</td></tr>' + \
-            '<tr><td>4. 자막유형 : ' + info['trackKind'] +'</td></tr>' + \
-            '<tr><td><a href="' +info['link']+ '">5. 링크</a></td></tr>' + \
-            '</table>' + \
-            '<br><br>'
+        html += '<table>' +             '<tr><td>1. 제목     : ' + info['title'] +'</td></tr>' +             '<tr><td>2. 설명     : ' + info['description'] +'</td></tr>' +             '<tr><td>3. 키워드   : ' + info['keywords'] +'</td></tr>' +             '<tr><td>4. 자막유형 : ' + info['trackKind'] +'</td></tr>' +             '<tr><td><a href="' +info['link']+ '">5. 링크</a></td></tr>' +             '</table>' +             '<br><br>'
     
     return html
     
@@ -203,6 +164,41 @@ def print_index_table():
             
            )
 
+
+@app.route('/train')
+def train():
+    preprocessing.normalizing(forced = True)
+    noun.train()
+    noun.update(forced = True)
+    keywords.train()
+    return redirect(url_for('index'))
+
+@app.route('/update')
+def update():    
+    preprocessing.normalizing()
+    noun.update()
+    keywords.update()
+    indexing.update()
+    return redirect(url_for('index'))
+
+@app.route('/forced_update')
+def forced_update():
+    preprocessing.normalizing(forced = True)
+    noun.update(forced = True)
+    keywords.update(forced = True)
+    indexing.update(forced = True)
+    return redirect(url_for('index'))
+
+@app.route('/search_word')
+def search_word():
+    search_word = request.args.get('search_word')
+    import timeit
+    start = timeit.default_timer()
+    search_list = search(search_word)
+    stop = timeit.default_timer()
+    return print_search_list(search_word, search_list, stop - start )
+    
+    
 @app.route('/caption_download', methods=['GET'])
 def caption_download():
     if 'credentials' not in session:
@@ -363,3 +359,5 @@ def caption_download():
 os.environ['OAUTHLIB_INSECURE_TRANSPORT'] = '1'
 
 run_simple('localhost', 8080, app, use_reloader =False)
+
+

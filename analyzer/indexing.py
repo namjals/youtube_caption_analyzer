@@ -12,7 +12,6 @@ from lib.utils  import path
 
 def add_item(indexer, video_id, contents):
     for word, count in Counter(contents).items():   
-        word = word.lower() #lowercase indexing
         if word in indexer:
             if video_id in indexer[word]:
                  indexer[word][video_id] += count

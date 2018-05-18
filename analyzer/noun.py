@@ -1,3 +1,5 @@
+
+
 import json
 import pickle
 import re
@@ -101,39 +103,21 @@ def update(forced = False):
     
     for video_id, content in download.items():
         state = content.get('state', 'new')
-        if state == 'new' or state == 'update' or forced:        
-            original = {}
-            nouns = {}
-            analysis[video_id] = {}
-            original['title'] = content.get('title','')
-            original['description'] = content.get('description', '')
-            original['caption'] = content.get('caption', '')
-            original['trackKind'] = content.get('trackKind', '')
+        if state == 'new' or state == 'update' or forced:
             
-            nouns['title'] = ' '.join(get_nouns(content.get('title', '')))
-            nouns['description'] = ' '.join(get_nouns(content.get('description', '')))
-            nouns['caption'] = ' '.join(get_nouns(content.get('caption', '')))
+            norm = analysis[video_id]['norm']
+            
+            nouns = {}                
+            nouns['title'] = ' '.join(get_nouns(norm.get('title', '')))
+            nouns['description'] = ' '.join(get_nouns(norm.get('description', '')))
+            nouns['caption'] = ' '.join(get_nouns(norm.get('caption', '')))
             nouns['all'] = nouns['title'] + ' ' + nouns['description'] + ' ' + nouns['caption'] 
             
-            analysis[video_id]['original'] = original
             analysis[video_id]['nouns'] = nouns
 
     save_json(analysis, analysis_path)
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
             
+
+

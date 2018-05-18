@@ -1,3 +1,5 @@
+
+
 import gensim
 
 from lib.keywords import keywords
@@ -64,3 +66,5 @@ def update(forced = False):
             analysis[video_id]['keywords'] = ' '.join(keyword)
             
     save_json(analysis, analysis_path)
+
+
