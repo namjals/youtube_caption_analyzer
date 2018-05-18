@@ -11,6 +11,7 @@ def search_index(words):
     indexer = load_binary(indexer_path)    
     result = Counter()
     for word in words.split():
+        word = word.lower() #lowercase search
         if word in indexer:
             result += Counter(indexer.get(word))    
     return [video_id for video_id, _ in result.most_common()]    
