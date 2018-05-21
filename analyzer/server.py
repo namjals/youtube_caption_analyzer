@@ -23,7 +23,6 @@ import indexing
 import keywords
 import noun
 import preprocessing
-from lib.search import search
 from lib.utils import get_depth_dict
 from lib.utils import load_json, save_json
 from lib.utils import path
@@ -130,7 +129,7 @@ def credentials_to_dict(credentials):
 
 def print_search_list(search_word, search_list, runtime):
     
-    html =  '<table>' +             '<tr><td><a href="/">검색하러 가기</a></td></tr>' +             '<tr><td>검색어 '+ str(search_word) + '</td></tr>' +             '<tr><td>검색결과 ' + str(len(search_list))+ '개 ('+ str(round(runtime,2)) +'초)</td></tr>' +             '</table><br><br>'
+    html =  '<table>' +             '<tr><td><a href="/">검색하러 가기</a></td></tr>' +             '<tr><td>검색어 '+ str(search_word) + '</td></tr>' +             '<tr><td>검색결과 ' + str(len(search_list))+ '개 ('+ str(round(runtime,6)) +'초)</td></tr>' +             '</table><br><br>'
     
     
     for info in search_list:
@@ -165,6 +164,10 @@ def print_index_table():
            )
 
 
+def initalize():
+    indexing.Indexer.loader()
+initalize()
+    
 @app.route('/train')
 def train():
     preprocessing.normalizing(forced = True)
@@ -178,7 +181,7 @@ def update():
     preprocessing.normalizing()
     noun.update()
     keywords.update()
-    indexing.update()
+    indexing.IndexerDict().update()
     return redirect(url_for('index'))
 
 @app.route('/forced_update')
@@ -186,16 +189,18 @@ def forced_update():
     preprocessing.normalizing(forced = True)
     noun.update(forced = True)
     keywords.update(forced = True)
-    indexing.update(forced = True)
+    indexing.IndexerDict().update(forced = True)
     return redirect(url_for('index'))
 
 @app.route('/search_word')
 def search_word():
     search_word = request.args.get('search_word')
+    
     import timeit
     start = timeit.default_timer()
-    search_list = search(search_word)
+    search_list = indexing.IndexerDict().search(search_word)
     stop = timeit.default_timer()
+
     return print_search_list(search_word, search_list, stop - start )
     
     
@@ -353,6 +358,8 @@ def caption_download():
     
     return redirect(url_for('index', _exteranl=True))
     
+
+
 # When running locally, disable OAuthlib's HTTPs verification.
 # ACTION ITEM for developers:
 #     When running in production *do not* leave this option enabled.
